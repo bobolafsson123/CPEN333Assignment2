@@ -129,7 +129,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Receptionist.cpp" />
     <ClCompile Include="Recycling.cpp" />
-    <ClCompile Include="Stores.cpp" />
+    <ClCompile Include="Store.cpp" />
     <ClCompile Include="Technician.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -138,7 +138,7 @@
     <ClInclude Include="JobSheet.h" />
     <ClInclude Include="Receptionist.h" />
     <ClInclude Include="Recycling.h" />
-    <ClInclude Include="Stores.h" />
+    <ClInclude Include="Store.h" />
     <ClInclude Include="Technician.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

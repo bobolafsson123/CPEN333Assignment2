@@ -22,7 +22,7 @@ public:
 	//effect: update car receptionist is servicing
 
 	std::string giveInfo(Car* car, std::string& serviceRecord) {
-		this->car = new Car();
+		this->car = car;
 		write("just got car and service Record");
 		JobSheet updatedJobSheet = technician->service(car);
 		makeCoffee();
