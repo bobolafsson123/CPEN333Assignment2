@@ -21,8 +21,8 @@ public:
 	//modifies:this, car, serviceRecord
 	//effect: update car receptionist is servicing
 
-	std::string giveInfo(Car* car, std::string& serviceRecord) {
-		this->car = car;
+	std::string giveInfo(Car& car, std::string& serviceRecord) {
+		this->car = &car;
 		write("just got car and service Record");
 		JobSheet updatedJobSheet = technician->service(car);
 		makeCoffee();
