@@ -6,7 +6,7 @@ int main() {
 	Receptionist* receptionist = new Receptionist(technician);
 	std::string serviceRecord = "initial Service Record";
 	std::vector<bool> tireStatuses = { false,false,false,false };
-	Car car =  Car(false,false,false, tireStatuses);
+	Car car;
 	receptionist->giveInfo(car, serviceRecord);
 	std::cout << serviceRecord << std::endl;
 	receptionist->payment(500);

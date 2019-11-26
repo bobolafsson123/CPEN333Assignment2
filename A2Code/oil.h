@@ -1,6 +1,6 @@
 #pragma once
 #include<iostream>
-struct oil {
+struct Oil {
 	std::string type;
-	int price;
+	int quantity;
 };

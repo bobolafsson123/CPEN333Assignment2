@@ -62,7 +62,7 @@
     <ClInclude Include="Store.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="oil.h">
+    <ClInclude Include="Oil.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,40 +1,56 @@
 #pragma once
 #include <vector>
+#include"Oil.h"
 class Car
 {
 private:
-// status is one of True, False. True means not need changing, and False means needs changing
-	bool oilStatus;
-	bool oilFilterStatus;
-	bool airFilterStatus;
-	std::vector<bool> tireStatuses;
+	// status is one of True, False. True means not need changing, and False means needs changing
+	Oil oil;
+	bool oilFilter;
+	bool airFilter;
+	std::vector<bool> tires;
+
 
 
 public:
 
-	Car(bool oilStatus,
-	bool oilFilterStatus,
-	bool airFilterStatus,
-	std::vector<bool> tireStatuses) {
-		this->oilFilterStatus = oilStatus;
-		this->oilFilterStatus = oilFilterStatus;
-		this->airFilterStatus = airFilterStatus;
-		this->tireStatuses = tireStatuses;
+	Car() :oil({ "type 95",500 }), oilFilter(false), airFilter(false), tires({ false,false,false,false }) {
 	}
-	void swapOil() {
-		this->oilStatus = true;
+
+	//requires: None
+	//Modifies this
+	//car's oil becomes new oil
+	Oil getOil() {
+		return oil;
 	}
-	void swapOilFilter() {
-		this->oilFilterStatus = true;
+
+	bool getOilFilter() {
+		return oilFilter;
+	}
+	bool getAirFilter() {
+		return airFilter;
+	}
+
+	//modifies: this
+	//effect: updates oil with newOil and returns oldOil
+	Oil swapOil(Oil newOil) {
+		Oil oldOil = oil;
+		oil = newOil;
+		return oldOil;
+	}
+	bool swapOilFilter(bool newOilFilter) {
+		bool oldOilFilter = oilFilter;
+		oilFilter = newOilFilter;
+		return oldOilFilter;
 	}
 
 	void swapAirFilter() {
-		this->airFilterStatus = true;
+		
 	}
 
 	bool checkTiresForWear() {
-		for (int i = 0; i < tireStatuses.size(); i++) {
-			if (tireStatuses[i] == false) {
+		for (int i = 0; i < tires.size(); i++) {
+			if (tires[i] == false) {
 				return true;
 			}
 		}
@@ -42,8 +58,8 @@ public:
 	}
 
 	void swapTiresNewTires() {
-		for (int i = 0; i < tireStatuses.size(); i++) {
-			tireStatuses[i] = true;
+		for (int i = 0; i < tires.size(); i++) {
+			tires[i] = true;
 		}
 	}
 
