@@ -136,6 +136,7 @@
     <ClInclude Include="Car.h" />
     <ClInclude Include="Garbage.h" />
     <ClInclude Include="JobSheet.h" />
+    <ClInclude Include="oil.h" />
     <ClInclude Include="Receptionist.h" />
     <ClInclude Include="Recycling.h" />
     <ClInclude Include="Store.h" />
