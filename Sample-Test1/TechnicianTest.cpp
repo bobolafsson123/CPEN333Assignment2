@@ -24,3 +24,17 @@ TEST(Car, swapOilFilter) {
 	EXPECT_TRUE(car.getOilFilter());
 }
 
+TEST(Car, swapAirFilter) {
+	Car car;
+	EXPECT_FALSE(car.getAirFilter());
+	bool oldAirFilter = car.swapAirFilter(true);
+	EXPECT_FALSE(oldAirFilter);
+	EXPECT_TRUE(car.getAirFilter());
+}
+
+TEST(Car, checkTiresForWear) {
+	Car car;
+	std::vector<bool> a = { false, false, false, false};
+	EXPECT_EQ(car.checkTiresForWear(),a);
+}
+

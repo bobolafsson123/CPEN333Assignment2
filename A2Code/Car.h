@@ -8,13 +8,13 @@ private:
 	Oil oil;
 	bool oilFilter;
 	bool airFilter;
-	std::vector<bool> tires;
+	std::vector<bool> isTireGood;
 
 
 
 public:
 
-	Car() :oil({ "type 95",500 }), oilFilter(false), airFilter(false), tires({ false,false,false,false }) {
+	Car() :oil({ "type 95",500 }), oilFilter(false), airFilter(false), isTireGood({ false,false,false,false }) {
 	}
 
 	//requires: None
@@ -44,22 +44,20 @@ public:
 		return oldOilFilter;
 	}
 
-	void swapAirFilter() {
-		
+	bool swapAirFilter(bool newAirFilter) {
+		bool oldAirFilter = airFilter;
+		airFilter = newAirFilter;
+		return oldAirFilter;
 	}
 
-	bool checkTiresForWear() {
-		for (int i = 0; i < tires.size(); i++) {
-			if (tires[i] == false) {
-				return true;
-			}
-		}
-		return false;
+
+	std::vector<bool> checkTiresForWear() {
+		return isTireGood;
 	}
 
 	void swapTiresNewTires() {
-		for (int i = 0; i < tires.size(); i++) {
-			tires[i] = true;
+		for (int i = 0; i < isTireGood.size(); i++) {
+			isTireGood[i] = true;
 		}
 	}
 

@@ -141,6 +141,7 @@
     <ClInclude Include="Recycling.h" />
     <ClInclude Include="Store.h" />
     <ClInclude Include="Technician.h" />
+    <ClInclude Include="TireBatch.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
