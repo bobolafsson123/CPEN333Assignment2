@@ -7,7 +7,7 @@ private:
 		std::cout << "Garbage: " << message << std::endl;
 	}
 public:
-	void recycle(bool filter) {
+	void dispose(bool filter) {
 		write("filter disposed");
 	}
 

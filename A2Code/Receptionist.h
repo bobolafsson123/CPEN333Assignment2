@@ -18,6 +18,10 @@ public:
 	Receptionist(Technician* technician) {
 		this->technician = technician;
 	}
+	~Receptionist() {
+		delete car;
+		delete technician;
+	}
 	//modifies:this, car, serviceRecord
 	//effect: update car receptionist is servicing
 
