@@ -31,26 +31,48 @@ public:
 	JobSheet service(Car& car) {
 		JobSheet jobSheet;
 		Oil newOil = store->getOil("type 90",4);
+		write("got new oil");
 		jobSheet.addItem(1, 4, 200);
+
 		bool newAirFilter = store->getAirFilter();
+		write("got new air filter");
 		jobSheet.addItem(2, 1, 20);
 		bool newOilFilter = store->getOilFilter();
+		write("got new oil filter");
 		jobSheet.addItem(3, 5, 6);
 		Oil oldOil = car.swapOil(newOil);
+		write("swapped old oil");
 		recycling->recycle(oldOil);
 		jobSheet.addLabourItem("oilChange", 50);
 
 		bool oldOilFilter = car.swapOilFilter(newOilFilter);
+		write("swapped oil filter on car");
 		garbage->dispose(oldOilFilter);
 		jobSheet.addLabourItem("oilFilterChange", 30);
 
 		bool oldAirFilter = car.swapAirFilter(newAirFilter);
+		write("swapped air filter on car");
 		garbage->dispose(oldAirFilter);
 		jobSheet.addLabourItem("AirFilterChange", 35);
 
-		std::vector <bool> tireStatus = car.checkTiresForWear();//!!!
+		std::vector <bool> tireStatus = car.checkTiresForWear();
 
+		if (std::find(tireStatus.begin(), tireStatus.end(), false) != tireStatus.end()) {
+			write("car tires need swapping");
+			TireBatch newTires = store->getTires("best brand", 3, 4);
+			jobSheet.addItem(5, 4, 300);
+			TireBatch oldTires = car.swapTires(newTires);
+			write("Swapped tires");
+			recycling->recycle(oldTires);
+			jobSheet.addLabourItem("Changed Tires", 30);
+		}
+		else {
+			car.rotateTires();
+			write("Rotated tires as they don't need swapping");
+			jobSheet.addLabourItem("tire rotation", 5);
+		}
 
+		return jobSheet;
 
 		write("finished servicing car but pretending it takes longer so customer can drink coffee");
 		return jobSheet;
