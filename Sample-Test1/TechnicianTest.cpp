@@ -38,3 +38,18 @@ TEST(Car, checkTiresForWear) {
 	EXPECT_EQ(car.checkTiresForWear(),a);
 }
 
+TEST(Car, swapTiresNewTires) {
+	Car car; 
+	std::vector <bool> isOldTireGood = car.checkTiresForWear();
+	EXPECT_TRUE(std::find(isOldTireGood.begin(),isOldTireGood.end(), true) == isOldTireGood.end());
+	TireBatch newTireBatch{ "costco",3,2 };
+	car.swapTires(newTireBatch);
+	std::vector <bool> isNewTireGood = car.checkTiresForWear();
+	EXPECT_EQ(std::count(isNewTireGood.begin(), isNewTireGood.end(),true), 2);
+
+	car.swapTires(newTireBatch);
+	std::vector <bool> isNewNewTireGood = car.checkTiresForWear();
+	EXPECT_EQ(std::count(isNewNewTireGood.begin(), isNewNewTireGood.end(), true), 4);
+}
+
+
