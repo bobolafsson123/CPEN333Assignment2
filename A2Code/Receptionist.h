@@ -32,7 +32,7 @@ public:
 		makeCoffee();
 		std::string invoice = generateInvoice();
 		stampServiceRecord(serviceRecord);
-		return invoice;
+		return updatedJobSheet.getJobSheet();
 	}
 
 	//requires: car and technician is not null
@@ -50,8 +50,8 @@ public:
 		servicerRecord = servicerRecord + std::string("STAMPED");
 	}
 
-	void payment(int amount) {
-		write("received payment" + std::to_string(amount) + " you may now take your car home");
+	void payment() {
+		write("received payment in the correct amount from customer!");
 
 	}
 
